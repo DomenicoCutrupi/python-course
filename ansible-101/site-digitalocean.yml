@@ -19,12 +19,9 @@
   vars:
     oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
     ssh_pubkeys:
-      - rpolli-ed25519
-      - esavo-rsa
-      - dabbasciano-rsa
+      - d8o-mac
     droplet_names:
-      - deleteme-1
-      - deleteme-2
+      - ansible-test
 
   tasks:
   - name: Retrieve ssh key id.
@@ -132,8 +129,8 @@
 
     - name: Download course
       git:
-        repo: https://github.com/ioggstream/python-course.git
-        version: master
+        repo: https://github.com/DomenicoCutrupi/python-course.git
+        version: d8o
         dest: /root/python-course
       ignore_errors: true
 
