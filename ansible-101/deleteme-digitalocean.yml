@@ -22,5 +22,4 @@
       wait_timeout: 500
     register: my_droplet
     with_items:
-    - deleteme-1
-    - deleteme-2
+    - ansible-test
