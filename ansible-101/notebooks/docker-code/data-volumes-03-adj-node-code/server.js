@@ -36,8 +36,7 @@ app.post('/create', async (req, res) => {
     if (exists) {
       res.redirect('/exists');
     } else {
-      await fs.copyFile(tempFilePath, finalFilePath);
-      await fs.unlink(tempFilePath);
+      await fs.rename(tempFilePath, finalFilePath);
       res.redirect('/');
     }
   });
