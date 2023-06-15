@@ -22,15 +22,15 @@
       - dcutrupi-rsa
     droplet_names:
       - ansible-test-0
-      - ansible-test-1
-      - ansible-test-2
-      - ansible-test-3
-      - ansible-test-4
-      - ansible-test-5
-      - ansible-test-6
-      - ansible-test-7
-      - ansible-test-8
-      - ansible-test-9
+#      - ansible-test-1
+#      - ansible-test-2
+#      - ansible-test-3
+#      - ansible-test-4
+#      - ansible-test-5
+#      - ansible-test-6
+#      - ansible-test-7
+#      - ansible-test-8
+#      - ansible-test-9
   tasks:
   - name: Retrieve ssh key id.
     community.digitalocean.digital_ocean_sshkey_info:
