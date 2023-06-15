@@ -19,7 +19,8 @@
   vars:
     oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
     ssh_pubkeys:
-      - d8o-mac
+#      - d8o-mac
+      - dcutrupi-rsa
     droplet_names:
       - ansible-test
 
