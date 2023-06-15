@@ -19,11 +19,18 @@
   vars:
     oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
     ssh_pubkeys:
-#      - d8o-mac
       - dcutrupi-rsa
     droplet_names:
-      - ansible-test
-
+      - ansible-test-0
+      - ansible-test-1
+      - ansible-test-2
+      - ansible-test-3
+      - ansible-test-4
+      - ansible-test-5
+      - ansible-test-6
+      - ansible-test-7
+      - ansible-test-8
+      - ansible-test-9
   tasks:
   - name: Retrieve ssh key id.
     community.digitalocean.digital_ocean_sshkey_info:
@@ -85,6 +92,11 @@
     vars:
       jq: "[?(@.type=='public')].ip_address"
 
+  - name: Wait for SSH connection
+    wait_for_connection:
+      delay: 10
+      timeout: 300
+        
 #
 # Configure the newly created machines
 #
@@ -92,11 +104,15 @@
   tags:
   - setup
   vars:
-  - ansible_python_interpreter: /usr/bin/python3
-  - ansible_user: root
-  environment:
-  - ANSIBLE_HOST_KEY_CHECKING: False
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_user: root
+    ansible_env:
+      ANSIBLE_HOST_KEY_CHECKING: False
   tasks:
+  - name: Wait for SSH connection
+    wait_for_connection:
+      delay: 10
+      timeout: 300
   - ping:
   - block:
     - name: Automatic shutdown crontab entry

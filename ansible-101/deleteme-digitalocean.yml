@@ -22,4 +22,13 @@
       wait_timeout: 500
     register: my_droplet
     with_items:
-    - ansible-test
+      - ansible-test-0
+      - ansible-test-1
+      - ansible-test-2
+      - ansible-test-3
+      - ansible-test-4
+      - ansible-test-5
+      - ansible-test-6
+      - ansible-test-7
+      - ansible-test-8
+      - ansible-test-9
